@@ -7,8 +7,8 @@ log4js.configure({
 });
 
 const logger = log4js.getLogger('cheese')
-const bagSn = '29e6802e149f48a7'
-const luckyNum = 5
+const bagSn = '29f3a207991c3815'
+const luckyNum = 10
 
 const Liam = {
   url: 'https://h5.ele.me/restapi/marketing/promotion/weixin/oEGLvjgafvfLBvx-Nu5IYsyVA8x0',
@@ -51,6 +51,8 @@ function testRedBag(tester, owner) {
       testRedBag(tester, owner)
       return
     } else if(totalGot === luckyNum - 1) {
+      console.log('got')
+      return
       fetchRedBag(owner, (res) => {
         const totalGot = res.promotion_records.length
         if(totalGot === luckyNum - 1) {
